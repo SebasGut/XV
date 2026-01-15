@@ -1,0 +1,66 @@
+.message {
+    background-color: #000000;
+    color: #fff;
+}
+
+.message_paragraph {
+    font-family: var(--montserrat-sand);
+    text-align: center;
+    padding: 1rem;
+    font-size: 1rem;
+}
+
+.message h3 {
+    font-family: var(--great-sand);
+    font-size: 3rem;
+    color: #d0a848;
+}
+
+.img_body {
+    background-image: url("../img/mensaje1.jpg");
+    height: 45vh;
+    background-position:bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    display: flex;
+    align-items: end;
+}
+
+.img_body .message_paragraph {
+    width: 100%;
+    padding: auto;
+    font-size: 1.5rem;
+    color: #fff;
+    font-weight: 500;
+    text-shadow: 0px 0px 4px #000000;
+}
+
+@media only screen and (min-width: 720px) {
+    .img_body{
+        height: 100vh;
+        background-image: url("../img/mensaje2.jpg");
+        background-position:center;
+    }
+    .img_body .message_paragraph {
+        font-size: 3rem;
+    }
+
+    .message h3 {
+        font-size: 4rem;
+    }
+
+    .message_paragraph {
+        font-size: 2rem;
+    }
+
+    #mes_by_one {
+        height: 500px;
+    }
+}
+
+@media only screen and (min-width: 1280px) {
+    .img_body{
+        height: 80vh;
+    }
+}

@@ -1,0 +1,50 @@
+.goodfa {
+    border-top: 1px solid #d0a848;
+    padding: 1rem 0;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.goodfacards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.goodfa h3 {
+    font-family: var(--montserrat-sand);
+    color: #d0a848;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+#reazon{
+    margin-top: 2rem;
+}
+
+#firstph{
+    margin-bottom: 2rem ;
+}
+
+@media only screen and (min-width: 720px) {
+    .goodfacards {
+        display: flex;
+        flex-direction: row;
+        box-sizing: border-box;
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: stretch;
+    }
+
+    .goodfacard img {
+        width: 50%;
+        height: auto;
+    }
+
+    .goodfacard {
+        width: 25%;
+    }
+}

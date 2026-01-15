@@ -1,0 +1,21 @@
+.itinerary {
+    text-align: center;
+    background-image: url("../img/program.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    padding-bottom: 1rem;
+    height: 90vh;
+}
+
+@media only screen and (min-width: 720px) {
+    .itinerary {
+        height: 150vh;
+    }
+}
+
+@media only screen and (min-width: 720px) {
+    .itinerary{
+        height: 90vh;
+    }
+}

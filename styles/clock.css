@@ -1,0 +1,49 @@
+#countdown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 48px;
+  text-align: center;
+  margin-top: 1vw;
+}
+
+.countdown-item {
+  display: inline-block;
+  margin-right: 20px;
+  font-size: 8vw;
+  padding: 2vw 1vw 2vw 1vw;
+  font-family: var(--montserrat-sand);
+}
+
+.countdown-item-label {
+  font-size: 3vw;
+  margin-top: 5px;
+}
+
+.countdown-item-days .countdown-item-label {
+  display: block;
+}
+
+#countdown p {
+  padding: 0 .5vw 0 .5vw;
+  font-size: 6vw;
+  font-family: var(--montserrat-sand);
+}
+
+@media only screen and (min-width: 720px) {
+  .countdown-item {
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  .countdown-item-label {
+    font-size: 1rem;
+    margin: 0;
+  }
+  #countdown{
+    margin: 0;
+  }
+  #countdown p {
+    font-size: 1rem;
+  }
+}

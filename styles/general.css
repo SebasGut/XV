@@ -1,0 +1,10 @@
+:root {
+    --josefin-sand: "Josefin Sans", sans-serif;
+    --montserrat-sand: "Montserrat", sans-serif;
+    --great-sand: "Great Vibes", cursive;
+    --pinyon-sand: "Pinyon Script", cursive;
+}
+
+main {
+    background-color: #000000;
+}
