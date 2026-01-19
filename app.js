@@ -1,5 +1,5 @@
 //clock//
-const targetDate = new Date("October 26, 2024 18:00:00").getTime();
+const targetDate = new Date("March 13, 2026 18:00:00").getTime();
 setInterval(() => {
   const now = new Date().getTime();
   const difference = targetDate - now;

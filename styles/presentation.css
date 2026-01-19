@@ -1,7 +1,7 @@
 .pre_img {
     height: 100vh;
     background-image: url("../img/presentation.jpg");
-    background-position: center;
+    background-position:left;
     background-repeat: no-repeat;
     background-size: cover;
     text-align: center;
@@ -11,19 +11,33 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: #fff;
-    text-shadow: 0px 0px 4px #ffd500;
-    padding-top: 3rem;
+    color: #000000;
+    padding-top: 12rem;
 }
 
 .pre_img p {
-    margin: 1rem 0;
+    margin: 1.5rem 0;
     font-size: 1.5rem;
 }
 
 .pre_img h2 {
     font-size: 15vw;
     font-family: var(--great-sand);
+    color: #960018;
+}
+
+#XV_letter {
+    font-size: 10rem;
+    color: white;
+    text-shadow: pink 2px 2px 4px;
+}
+
+#quince_letter {
+    margin-top: -8rem;
+    margin-bottom: 4rem;
+    font-size: 4rem;
+    font-family: var(--great-sand);
+    color: #D4AF37;
 }
 
 
@@ -41,16 +55,15 @@
 
 @media only screen and (min-width: 720px){
     .pre_img {
+        align-items: center;
         height: 100vh;
         background-image: url("../img/presentationVer.jpg");
-        padding-top: 1rem;
+        padding-top: 4rem;
     }
 
     .clock_cont {
         padding-top: 0;
-        color: #000000;
-        width:fit-content;  
-        margin-left: 58%; 
+        color: #000000;  
     }
 
     .pre_img p {
@@ -61,6 +74,21 @@
     .pre_img h2{
         font-size: 2.3rem;
     }
+
+    #XV_letter {
+        font-size: 7rem;
+    }
+
+    #quince_letter {
+        font-size:  3.5rem;
+        margin-top: -5rem;
+        margin-bottom: 1rem;
+    }
+
+    .pre_img h2{
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+    }
 }
 
 @media only screen and (min-width: 1280px) {
@@ -68,10 +96,5 @@
         height: 100vh;
         background-image: url("../img/presentationVer.jpg");
     }
-    .clock_cont{
-        width:fit-content; 
-        margin-left: 65%;
-    }
-
     
 }
