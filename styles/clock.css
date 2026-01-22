@@ -32,7 +32,7 @@
 
 @media only screen and (min-width: 720px) {
   .countdown-item {
-    font-size: 1rem;
+    font-size: 1.5rem;
     margin: 0;
   }
 
@@ -40,10 +40,24 @@
     font-size: 1rem;
     margin: 0;
   }
-  #countdown{
+
+  #countdown {
     margin: 0;
   }
+
   #countdown p {
     font-size: 1rem;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .countdown-item {
+    font-size: 3rem;
+    margin: 0;
+  }
+
+  .countdown-item-label {
+    font-size: 2rem;
+    margin: 0;
   }
 }

@@ -3,10 +3,11 @@
     top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #000000;
-    color: #d0a848;
+    background-color: #ffeaf6;
+    color: #ffffff;
+    text-shadow: #aa3e7d 1px 1px 2px;
     padding: 20px;
-    border: 1px solid #d0a848;
+    border: 3px solid #aa3e7d;
     border-radius: 5px;
     text-align: center;
     z-index: 9999;
@@ -24,18 +25,18 @@
     margin-bottom: 2rem;
 }
 #play_welcome_button {
-    background-color: #d0a848;
-    border: #000000 1px solid;
-    color: #000000;
+    background-color: #aa3e7d;
+    border: #ffeaf6 1px solid;
+    color: #ffeaf6;
     padding: 10px 20px;
     font-size: 16px;
     border-radius: 5px;
     cursor: pointer;
 }
 #play_welcome_button:hover {
-    background-color: #000000;
-    color: #d0a848;
-    border: #d0a848 1px solid;
+    background-color: #ffeaf6;
+    color: #aa3e7d;
+    border: #aa3e7d 1px solid;
 }
 
 .glass{

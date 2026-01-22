@@ -1,7 +1,7 @@
 .pre_img {
     height: 100vh;
     background-image: url("../img/presentation.jpg");
-    background-position:left;
+    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     text-align: center;
@@ -53,7 +53,7 @@
     }
 }
 
-@media only screen and (min-width: 720px){
+@media only screen and (min-width: 720px) {
     .pre_img {
         align-items: center;
         height: 100vh;
@@ -63,15 +63,15 @@
 
     .clock_cont {
         padding-top: 0;
-        color: #000000;  
+        color: #000000;
     }
 
     .pre_img p {
         margin: 0 0;
         font-size: 1.5rem;
     }
-    
-    .pre_img h2{
+
+    .pre_img h2 {
         font-size: 2.3rem;
     }
 
@@ -80,12 +80,12 @@
     }
 
     #quince_letter {
-        font-size:  3.5rem;
+        font-size: 3.5rem;
         margin-top: -5rem;
         margin-bottom: 1rem;
     }
 
-    .pre_img h2{
+    .pre_img h2 {
         font-size: 3.5rem;
         margin-bottom: 1rem;
     }
@@ -96,5 +96,23 @@
         height: 100vh;
         background-image: url("../img/presentationVer.jpg");
     }
-    
+
+    #XV_letter {
+        font-size: 12rem;
+    }
+
+    #quince_letter {
+        font-size: 6rem;
+        margin-top: -8.5rem;
+        margin-bottom: 3rem;
+    }
+
+    .pre_img h2 {
+        font-size: 10rem;
+        margin-bottom: 1rem;
+    }
+
+    #date {
+        font-size: 5rem;
+    }
 }
