@@ -45,3 +45,8 @@ table {
 main{
 	width: 100%;
 }
+
+/* Bloquear scroll cuando el welcome está activo */
+body {
+	overflow: hidden;
+}

@@ -1,118 +1,135 @@
+#bg-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-image: url("../img/bg-1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  z-index: -10;
+  pointer-events: none;
+}
+
+/* Fondo alterno - se revela con clip-path */
+#bg-alt,
+[id^="bg-alt-"] {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  z-index: -9;
+  clip-path: inset(100% 0 0 0);
+  pointer-events: none;
+}
+
 .pre_img {
-    height: 100vh;
-    background-image: url("../img/presentation.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    text-align: center;
+  height: 100vh;
+  text-align: center;
 }
 
 .clock_cont {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: #000000;
-    padding-top: 12rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #000000;
+  padding-top: 12rem;
 }
 
 .pre_img p {
-    margin: 1.5rem 0;
-    font-size: 1.5rem;
+  margin: 1.5rem 0;
+  font-size: 1.5rem;
 }
 
 .pre_img h2 {
-    font-size: 15vw;
-    font-family: var(--great-sand);
-    color: #960018;
+  font-size: 15vw;
+  font-family: var(--great-sand);
+  color: #960018;
 }
 
 #XV_letter {
-    font-size: 10rem;
-    color: white;
-    text-shadow: pink 2px 2px 4px;
+  font-size: 10rem;
+  color: white;
+  text-shadow: pink 2px 2px 4px;
 }
 
 #quince_letter {
-    margin-top: -8rem;
-    margin-bottom: 4rem;
+  margin-top: -15rem;
+  margin-bottom: 4rem;
+  font-size: 4rem;
+  font-family: var(--great-sand);
+  color: #d4af37;
+}
+
+@media only screen and (min-width: 720px) {
+  .clock_cont {
+    padding-top: 0;
+    color: #000000;
+  }
+
+  .pre_img p {
+    margin: 0 0;
+    font-size: 1.5rem;
+  }
+
+  .pre_img h2 {
+    font-size: 2.3rem;
+  }
+
+  #XV_letter {
+    font-size: 7rem;
+  }
+
+  #quince_letter {
+    font-size: 3.5rem;
+    margin-top: -5rem;
+    margin-bottom: 1rem;
+  }
+
+  .pre_img h2 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+  }
+  .clock_cont {
+    padding-top: 2rem;
+  }
+  .pre_img {
+    height: 100vh;
+  }
+
+  .pre_img h2 {
     font-size: 4rem;
-    font-family: var(--great-sand);
-    color: #D4AF37;
-}
-
-
-@media only screen and (min-width: 720px) {
-    .pre_img {
-        height: 100vh;
-        padding-top: 10vh;
-    }
-
-    .pre_img h2 {
-        font-size: 4rem;
-        padding-top: 1rem;
-    }
-}
-
-@media only screen and (min-width: 720px) {
-    .pre_img {
-        align-items: center;
-        height: 100vh;
-        background-image: url("../img/presentationVer.jpg");
-        padding-top: 4rem;
-    }
-
-    .clock_cont {
-        padding-top: 0;
-        color: #000000;
-    }
-
-    .pre_img p {
-        margin: 0 0;
-        font-size: 1.5rem;
-    }
-
-    .pre_img h2 {
-        font-size: 2.3rem;
-    }
-
-    #XV_letter {
-        font-size: 7rem;
-    }
-
-    #quince_letter {
-        font-size: 3.5rem;
-        margin-top: -5rem;
-        margin-bottom: 1rem;
-    }
-
-    .pre_img h2 {
-        font-size: 3.5rem;
-        margin-bottom: 1rem;
-    }
+    padding-top: 1rem;
+  }
 }
 
 @media only screen and (min-width: 1280px) {
-    .pre_img {
-        height: 100vh;
-        background-image: url("../img/presentationVer.jpg");
-    }
+  .pre_img {
+    height: 100vh;
+    background-image: url("../img/presentationVer.jpg");
+  }
 
-    #XV_letter {
-        font-size: 12rem;
-    }
+  #XV_letter {
+    font-size: 12rem;
+  }
 
-    #quince_letter {
-        font-size: 6rem;
-        margin-top: -8.5rem;
-        margin-bottom: 3rem;
-    }
+  #quince_letter {
+    font-size: 6rem;
+    margin-top: -8.5rem;
+    margin-bottom: 3rem;
+  }
 
-    .pre_img h2 {
-        font-size: 10rem;
-        margin-bottom: 1rem;
-    }
+  .pre_img h2 {
+    font-size: 10rem;
+    margin-bottom: 1rem;
+  }
 
-    #date {
-        font-size: 5rem;
-    }
+  #date {
+    font-size: 5rem;
+  }
 }

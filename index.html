@@ -36,6 +36,9 @@
 
   <body>
     <main>
+      <!-- Fondos fijos para efecto cortina -->
+      <div id="bg-layer"></div>
+      <!-- Los fondos alternativos se crean dinámicamente con JavaScript -->
       <!--Welcome message and glass efect-->
       <div id="glass_efect" class="glass">
         <div id="welcome_mesagge">
@@ -45,7 +48,7 @@
         </div>
       </div>
       <!--precentation-->
-      <section class="container" id="presentation">
+      <section class="container soft-section" id="presentation">
         <div class="pre_img">
           <div class="clock_cont">
             <div class="XV_logo">
@@ -81,25 +84,35 @@
       <!--First message paragraph-->
       <section class="container">
         <div class="message">
-          <h3 class="message_paragraph">
-            ¡Estás afectuosamente invitada e invitado!
-          </h3>
           <p class="message_paragraph">
-            Para nosotros es muy importante tu presencia.
+            Dejo un mundo atrás y entro a uno nuevo, aunque a veces el miedo me
+            invade, estoy llena de esperanzas y sueños; Sé que estoy
+            construyendo mi propio camino, tanta alegría me irrumpe que mi deseo
+            es compartirla con los que más quiero.
           </p>
           <p class="message_paragraph">
-            Queremos compartir contigo este día tan especial, donde festejamos
-            nuestra unión y nos aliamos ante la presencia de Dios.
+            Me hará muy feliz que me acompañes en este gran día.
           </p>
         </div>
       </section>
-      <!--Seond message paragraph-->
-      <section class="container">
-        <div class="img_body">
-          <p class="message_paragraph">
-            Hermoso el amor es con todos aquellos que amamos.
-          </p>
+      <!--Dad's card-->
+      <section class="container family_container soft-section">
+        <div class="family-card card">
+          <h3>Mis papas</h3>
+          <p>Señor papa de la niña</p>
+          <p>&</p>
+          <p>Señora mama de la niña</p>
         </div>
+        <div class="family-card card">
+          <h3>Mis padrinos</h3>
+          <p>Señor padrino de la niña</p>
+          <p>&</p>
+          <p>Señora madrina de la niña</p>
+        </div>
+      </section>
+      <!--Seond message paragraph-->
+      <section class="container img-section">
+        <div class="img_body"></div>
       </section>
       <!--Cards section-->
       <section class="container">
@@ -150,21 +163,6 @@
           </div>
         </div>
       </section>
-      <!--Drunk realese-->
-      <section class="container" id="drunk">
-        <h3>Coctelería pre fiesta</h3>
-        <div class="drunk_cont">
-          <img src="img/drunk.jpg" alt="Interior del hotel" />
-          <p>
-            Recuerda que antes de iniciar la fiesta oficialmente, tendremos 1
-            hora completa de coctelería para subir los ánimos. MESEROOOOO!!!!!
-          </p>
-        </div>
-      </section>
-      <!--itinerary section-->
-      <section class="container">
-        <div class="itinerary"></div>
-      </section>
       <!--outfit section-->
       <section class="container">
         <div class="outfit">
@@ -174,30 +172,7 @@
           <h3 class="nochilldren">¡Sin niños!</h3>
         </div>
       </section>
-      <!--Dad's card-->
-      <section class="container" id="family_container">
-        <div class="top_paragraph">
-          <h3>CON LA BENDICIÓN DE DIOS Y NUESTROS PADRES</h3>
-          <h4>¡Gracias por acompañarnos en este día tan especial!</h4>
-        </div>
-        <div class="family-card card">
-          <img src="img/parents.jpg" alt="imagen de pareja" />
-          <div class="dads girl_dads">
-            <p>Irma Granados Maldonado</p>
-            <p>&</p>
-            <p>Ezequiel García Barajas</p>
-            <p>- Padres de la novia -</p>
-          </div>
-          <div class="dads boy_dads">
-            <p>Rosalba Sandoval Hernández</p>
-            <p>en compañia de</p>
-            <p>Martín Hernández Serratos</p>
-            <p>&</p>
-            <p>Mauricio López Benítez</p>
-            <p>- Padres del novio -</p>
-          </div>
-        </div>
-      </section>
+
       <!--photo section-->
       <section class="container">
         <div class="us">
@@ -213,109 +188,7 @@
           </div>
         </div>
       </section>
-      <!--Goodfathers section-->
-      <section class="container goodfa">
-        <h3>Padrinos y Madrinas</h3>
-        <div class="goodfacards">
-          <!--Goodfathers card-->
-          <div class="family-card card goodfacard">
-            <img src="img/church.jpg" alt="imagen de church" />
-            <div class="dads girl_dads">
-              <p>Ma. Guadalupe Hernández Peña</p>
-              <p>&</p>
-              <p>Rolando Sandoval Cruz</p>
-              <p id="reazon">- Velación -</p>
-            </div>
-          </div>
-          <!--Goodfathers card-->
-          <div class="family-card card goodfacard">
-            <img src="img/rings.jpg" alt="imagen de rings" />
-            <div class="dads girl_dads">
-              <p>Reyna Granados Maldonado</p>
-              <p>&</p>
-              <p>Noé Gutiérrez Sotelo</p>
-              <p id="reazon">- Anillos -</p>
-            </div>
-          </div>
-          <!--Goodfathers card-->
-          <div class="family-card card goodfacard">
-            <img src="img/coins.jpg" alt="imagen de coins" />
-            <div class="dads girl_dads">
-              <p>Irma Granados Maldonado</p>
-              <p>&</p>
-              <p>Ezequiel García Barajas</p>
-              <p id="reazon">- Arras -</p>
-            </div>
-          </div>
-          <!--Goodfathers card-->
-          <div class="family-card card goodfacard">
-            <img src="img/laazo.jpg" alt="imagen de laazo" />
-            <div class="dads girl_dads">
-              <p>Blanca Aidee Tiburcio Hernández</p>
-              <p>&</p>
-              <p>Carlos Granados Maldonado</p>
-              <p id="reazon">- Lazo -</p>
-            </div>
-          </div>
-          <!--Goodfathers card-->
-          <div class="family-card card goodfacard">
-            <img src="img/bible.jpg" alt="imagen de bible" />
-            <div class="dads girl_dads">
-              <p>Irma Maldonado Valtierra</p>
-              <p>&</p>
-              <p>Anselmo Granados Olvera</p>
-              <p id="reazon">- Biblia & Rosario -</p>
-            </div>
-          </div>
-          <!--Goodfathers card-->
-          <div class="family-card card goodfacard">
-            <img src="img/pillows.jpg" alt="imagen de pillow" />
-            <div class="dads girl_dads">
-              <p>Bruno Augusto</p>
-              <p>&</p>
-              <p>Kassandra Valeria Trejo Sandoval</p>
-              <p>----------------------</p>
-              <p>Axel Javier</p>
-              <p>&</p>
-              <p>Luna Abril Julián Oliver</p>
-              <p id="reazon">- Cojines -</p>
-            </div>
-          </div>
-          <!--Goodfathers card-->
-          <div class="family-card card goodfacard">
-            <img src="img/heart.jpg" alt="imagen de heart" />
-            <div class="dads girl_dads">
-              <p id="firstph">En agradecimiento también para:</p>
-              <p>Adriana Sandoval</p>
-              <p>----------------------</p>
-              <p>Memo Granados y Nancy Ávila</p>
-              <p>----------------------</p>
-              <p>Javier Sandoval y Karla Oliver</p>
-              <p>----------------------</p>
-              <p>Cristina Gutierrez, Zuriel</p>
-              <p>García, Joselyn Machuca y Christian García</p>
-              <p>----------------------</p>
-              <p>Blanca Estela y Mayra Ivette Granados</p>
-              <p>----------------------</p>
-              <p>Cristel, Ailyn, Lía García,</p>
-              <p>Natalia y Mariel Machuca</p>
-              <p>----------------------</p>
-              <p>Violeta Martínez</p>
-              <p>----------------------</p>
-              <p>María y Ailyn Sandoval</p>
-              <p>----------------------</p>
-              <p>Lizeth Ortiz y Alan Sandoval</p>
-              <p>----------------------</p>
-              <p>Luís y Erik Sandoval</p>
-              <p>----------------------</p>
-              <p>Paola Gutiérrez</p>
-              <p>----------------------</p>
-              <p>Irving Cruz</p>
-              <p id="reazon">- Con todo el corazón -</p>
-            </div>
-          </div>
-        </div>
-      </section>
+
       <!--Gif section-->
       <section class="container gift_cont">
         <h3>Mesa de Regalos</h3>
@@ -351,13 +224,7 @@
       </section>
       <!--Music Player-->
       <div id="music-player">
-        <audio
-          id="audio-player"
-          src="music/music sample.mp3"
-          type="audio/mpeg"
-          loop
-          autoplay
-        ></audio>
+        <audio id="audio-player" src="" type="audio/mpeg" loop autoplay></audio>
         <button id="music-button" class="myButton">⏸️</button>
       </div>
     </main>
