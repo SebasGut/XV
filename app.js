@@ -120,9 +120,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Inicializar la sección existente
-  initBackgroundReveal(".img-section", "/img/bg-2.jpg", 1);
-  initBackgroundReveal(".img-section2", "/img/bg-3.jpg", 2);
-  initBackgroundReveal(".img-section3", "/img/bg-4.jpg", 3);
+  initBackgroundReveal(".img-section", "img/bg-2.jpg", 1);
+  initBackgroundReveal(".img-section2", "img/bg-3.jpg", 2);
+  initBackgroundReveal(".img-section3", "img/bg-4.jpg", 3);
 
   // EJEMPLO: Para agregar más secciones, usa así:
   // initBackgroundReveal(".img-section-2", "../img/bg-3.jpg", 2);
