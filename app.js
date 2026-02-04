@@ -55,74 +55,73 @@ function toggleMusicD() {
 buttonMusic.addEventListener("click", toggleMusic);
 play_welcome_button.addEventListener("click", toggleMusicD);
 
-//img scroll effect - background reveal with clip-path on scroll //
+//background reveal//
 document.addEventListener("DOMContentLoaded", () => {
-  // Crear div contenedor para todos los fondos alternativos
   const main = document.querySelector("main");
+
   const bgContainer = document.createElement("div");
   bgContainer.id = "bg-container";
-  bgContainer.style.cssText = "position: fixed; top: 0; left: 0; width: 100%; height: 100vh; pointer-events: none; z-index: 0;";
-  main.insertBefore(bgContainer, main.firstChild);
+  bgContainer.style.cssText = `
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -9;
+  `;
+  main.prepend(bgContainer);
 
-  // Función genérica para crear efecto de cortina
-  function initBackgroundReveal(selector, bgImage, bgIndex = 0) {
+  const reveals = [];
+
+  function initBackgroundReveal(selector, bgImage, index) {
     const section = document.querySelector(selector);
     if (!section) return;
 
-    // Crear elemento de fondo alterno si no existe
-    let bgAlt = document.querySelector(`#bg-alt-${bgIndex}`);
-    if (!bgAlt) {
-      bgAlt = document.createElement("div");
-      bgAlt.id = `bg-alt-${bgIndex}`;
-      bgAlt.style.cssText = `
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        background-image: url('${bgImage}');
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
-        z-index: -9;
-        clip-path: inset(100% 0 0 0);
-        pointer-events: none;
-      `;
-      bgContainer.appendChild(bgAlt);
-    }
+    const bgAlt = document.createElement("div");
+    bgAlt.style.cssText = `
+      position: fixed;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      clip-path: inset(100% 0 0 0);
+      will-change: clip-path;
+      transform: translateZ(0);
+    `;
+    bgAlt.dataset.image = bgImage;
+    bgAlt.dataset.loaded = "false";
 
-    // Manejador de scroll: calcular inset superior e inferior para controlar la máscara
-    const handleScroll = () => {
+    bgContainer.appendChild(bgAlt);
+    reveals.push({ section, bgAlt });
+  }
+
+  function onScroll() {
+    const vh = window.innerHeight;
+
+    reveals.forEach(({ section, bgAlt }) => {
       const rect = section.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-      const sectionHeight = section.offsetHeight;
 
-      // Si la sección está completamente fuera del viewport, ocultar
-      if (rect.bottom <= 0 || rect.top >= windowHeight) {
-        bgAlt.style.clipPath = `inset(100% 0 0 0)`;
+      if (rect.bottom <= 0 || rect.top >= vh) {
+        bgAlt.style.clipPath = "inset(100% 0 0 0)";
         return;
       }
 
-      // topInset: cuánto ocultar desde arriba (0 = visible, 100 = oculto)
-      const topInset = Math.max(0, Math.min(100, (rect.top / windowHeight) * 100));
+      // Lazy load real
+      if (bgAlt.dataset.loaded === "false" && rect.top < vh) {
+        bgAlt.style.backgroundImage = `url('${bgAlt.dataset.image}')`;
+        bgAlt.dataset.loaded = "true";
+      }
 
-      // bottomInset: cuánto ocultar desde abajo (0 = visible, 100 = oculto)
-      const bottomInset = Math.max(0, Math.min(100, ((windowHeight - rect.bottom) / windowHeight) * 100));
+      const topInset = Math.max(0, Math.min(100, (rect.top / vh) * 100));
+      const bottomInset = Math.max(0, Math.min(100, ((vh - rect.bottom) / vh) * 100));
 
-      // Aplicar ambos insets; cuando se entra se irá reduciendo topInset,
-      // cuando se sale hacia arriba (entra el siguiente elemento) se irá
-      // incrementando bottomInset, produciendo el efecto de desaparecer hacia arriba.
       bgAlt.style.clipPath = `inset(${topInset}% 0 ${bottomInset}% 0)`;
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
+    });
   }
 
-  // Inicializar la sección existente
-  initBackgroundReveal(".img-section", "img/bg-2.jpg", 1);
-  initBackgroundReveal(".img-section2", "img/bg-3.jpg", 2);
-  initBackgroundReveal(".img-section3", "img/bg-4.jpg", 3);
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+  initBackgroundReveal(".img-section", "img/bg-2.webp", 1);
+  initBackgroundReveal(".img-section2", "img/bg-3.webp", 2);
+  initBackgroundReveal(".img-section3", "img/bg-4.webp", 3);
 
   // EJEMPLO: Para agregar más secciones, usa así:
   // initBackgroundReveal(".img-section-2", "../img/bg-3.jpg", 2);
