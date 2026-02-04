@@ -91,10 +91,11 @@ document.addEventListener("DOMContentLoaded", () => {
   function onScroll() {
     const vh = window.innerHeight;
     const isMobile = window.innerWidth <= 1024;
+    const preloadOffset = 200; // px antes de entrar
     reveals.forEach(({ section, bgAlt }) => {
       const rect = section.getBoundingClientRect();
-      // Solo mostrar opacidad 1 si la sección está visible
-      if (rect.bottom <= 0 || rect.top >= vh) {
+      // Mostrar opacidad 1 cuando la sección esté cerca de entrar
+      if (rect.bottom <= 0 || rect.top >= vh + preloadOffset) {
         bgAlt.style.opacity = "0";
         bgAlt.style.clipPath = "inset(100% 0 0 0)";
         return;
