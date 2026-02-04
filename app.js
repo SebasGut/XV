@@ -81,9 +81,9 @@ document.addEventListener("DOMContentLoaded", () => {
     preloadBgImage(bgImage); // Precargar imagen al inicio
 
     const bgAlt = document.createElement("div");
-    bgAlt.style.cssText = `position: fixed; inset: 0; background-size: cover; background-position: center; background-attachment: fixed; background-color: #f8e6f2; transition: background-image 0.5s, background-color 0.5s; clip-path: inset(100% 0 0 0); will-change: clip-path; transform: translateZ(0);`;
-    bgAlt.dataset.image = bgImage;
-    bgAlt.dataset.loaded = "false";
+    bgAlt.style.cssText = `position: fixed; inset: 0; background-size: cover; background-position: center; background-attachment: fixed; background-color: #f8e6f2; transition: opacity 0.5s, background-color 0.5s; opacity: 0; clip-path: inset(100% 0 0 0); will-change: clip-path; transform: translateZ(0); pointer-events: none;`;
+    bgAlt.style.backgroundImage = `url('${bgImage}')`;
+    bgAlt.dataset.loaded = "true";
     bgContainer.appendChild(bgAlt);
     reveals.push({ section, bgAlt });
   }
@@ -93,16 +93,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const isMobile = window.innerWidth <= 1024;
     reveals.forEach(({ section, bgAlt }) => {
       const rect = section.getBoundingClientRect();
+      // Solo mostrar opacidad 1 si la sección está visible
       if (rect.bottom <= 0 || rect.top >= vh) {
+        bgAlt.style.opacity = "0";
         bgAlt.style.clipPath = "inset(100% 0 0 0)";
         return;
       }
-      // Mostrar imagen precargada instantáneamente
-      if (bgAlt.dataset.loaded === "false") {
-        bgAlt.style.backgroundImage = `url('${bgAlt.dataset.image}')`;
-        bgAlt.style.backgroundColor = "transparent";
-        bgAlt.dataset.loaded = "true";
-      }
+      bgAlt.style.opacity = "1";
+      bgAlt.style.backgroundColor = "transparent";
       // Mobile: quitar fixed para evitar salto
       if (isMobile) {
         bgAlt.style.backgroundAttachment = "scroll";
