@@ -25,6 +25,7 @@ setInterval(() => {
 //button music
 const player = document.getElementById("audio-player");
 const buttonMusic = document.getElementById("music-button");
+const playWelcomeButton = document.getElementById("play_welcome_button");
 
 function toggleMusic() {
   if (player.paused) {
@@ -37,118 +38,109 @@ function toggleMusic() {
 }
 
 function toggleMusicD() {
-  if (player.paused) {
-    player.play();
-  } else {
-    player.pause();
-  }
+  if (player.paused) player.play();
 
-  document.getElementById("welcome_mesagge").style.display = "none";
-  document.getElementById("glass_efect").style.display = "none";
-  document.body.style.overflow = "auto"; // Permitir scroll
+  const welcome = document.getElementById("welcome_mesagge");
+  const glass = document.getElementById("glass_efect");
+  if (welcome) welcome.style.display = "none";
+  if (glass) glass.style.display = "none";
+  document.body.style.overflow = "auto"; // permitir scroll
   document.querySelectorAll(".soft-section").forEach((section) => {
     section.classList.add("show-fade");
   });
-  player.play();
 }
 
-buttonMusic.addEventListener("click", toggleMusic);
-play_welcome_button.addEventListener("click", toggleMusicD);
+buttonMusic && buttonMusic.addEventListener("click", toggleMusic);
+playWelcomeButton && playWelcomeButton.addEventListener("click", toggleMusicD);
 
-//background reveal//
+// Initialize background reveal and carousel once
 document.addEventListener("DOMContentLoaded", () => {
+  // BACKGROUND REVEAL
   const main = document.querySelector("main");
-
   const bgContainer = document.createElement("div");
   bgContainer.id = "bg-container";
-  bgContainer.style.cssText = `
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: -9;
-  `;
-  main.prepend(bgContainer);
+  bgContainer.style.cssText = `position: fixed; inset: 0; pointer-events: none; z-index: -9;`;
+  main && main.prepend(bgContainer);
 
   const reveals = [];
 
-  function initBackgroundReveal(selector, bgImage, index) {
+  // Precarga de imágenes de fondo alterno
+  const preloadImages = [];
+  function preloadBgImage(src) {
+    if (!preloadImages.includes(src)) {
+      const img = new window.Image();
+      img.src = src;
+      preloadImages.push(src);
+    }
+  }
+
+  function initBackgroundReveal(selector, bgImage) {
     const section = document.querySelector(selector);
-    if (!section) return;
+    if (!section || !bgContainer) return;
+
+    preloadBgImage(bgImage); // Precargar imagen al inicio
 
     const bgAlt = document.createElement("div");
-    bgAlt.style.cssText = `
-      position: fixed;
-      inset: 0;
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      clip-path: inset(100% 0 0 0);
-      will-change: clip-path;
-      transform: translateZ(0);
-    `;
+    bgAlt.style.cssText = `position: fixed; inset: 0; background-size: cover; background-position: center; background-attachment: fixed; background-color: #f8e6f2; transition: background-image 0.5s, background-color 0.5s; clip-path: inset(100% 0 0 0); will-change: clip-path; transform: translateZ(0);`;
     bgAlt.dataset.image = bgImage;
     bgAlt.dataset.loaded = "false";
-
     bgContainer.appendChild(bgAlt);
     reveals.push({ section, bgAlt });
   }
 
   function onScroll() {
     const vh = window.innerHeight;
-
+    const isMobile = window.innerWidth <= 1024;
     reveals.forEach(({ section, bgAlt }) => {
       const rect = section.getBoundingClientRect();
-
       if (rect.bottom <= 0 || rect.top >= vh) {
         bgAlt.style.clipPath = "inset(100% 0 0 0)";
         return;
       }
-
-      // Lazy load real
-      if (bgAlt.dataset.loaded === "false" && rect.top < vh) {
+      // Mostrar imagen precargada instantáneamente
+      if (bgAlt.dataset.loaded === "false") {
         bgAlt.style.backgroundImage = `url('${bgAlt.dataset.image}')`;
+        bgAlt.style.backgroundColor = "transparent";
         bgAlt.dataset.loaded = "true";
       }
-
+      // Mobile: quitar fixed para evitar salto
+      if (isMobile) {
+        bgAlt.style.backgroundAttachment = "scroll";
+      } else {
+        bgAlt.style.backgroundAttachment = "fixed";
+      }
       const topInset = Math.max(0, Math.min(100, (rect.top / vh) * 100));
       const bottomInset = Math.max(0, Math.min(100, ((vh - rect.bottom) / vh) * 100));
-
       bgAlt.style.clipPath = `inset(${topInset}% 0 ${bottomInset}% 0)`;
     });
   }
 
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
-  initBackgroundReveal(".img-section", "img/bg-2.webp", 1);
-  initBackgroundReveal(".img-section2", "img/bg-3.webp", 2);
-  initBackgroundReveal(".img-section3", "img/bg-4.webp", 3);
 
-  // EJEMPLO: Para agregar más secciones, usa así:
-  // initBackgroundReveal(".img-section-2", "../img/bg-3.jpg", 2);
-  // initBackgroundReveal(".img-section-3", "../img/bg-4.jpg", 3);
-});
+  // register existing sections
+  initBackgroundReveal(".img-section", "img/bg-2.webp");
+  initBackgroundReveal(".img-section2", "img/bg-3.webp");
+  initBackgroundReveal(".img-section3", "img/bg-4.webp");
 
-//carouccel//
-document.addEventListener('DOMContentLoaded', function () {
-    const images = document.querySelectorAll('.carousel-items div');
-    const prevBtn = document.querySelector('.carousel-btn.prev');
-    const nextBtn = document.querySelector('.carousel-btn.next');
+  // CAROUSEL
+  const images = document.querySelectorAll('.carousel-items div');
+  const prevBtn = document.querySelector('.carousel-btn.prev');
+  const nextBtn = document.querySelector('.carousel-btn.next');
+  if (images.length && prevBtn && nextBtn) {
     let current = 0;
-
     function showImage(index) {
-        images.forEach(item => item.classList.remove('active'));
-        images[index].classList.add('active');
+      images.forEach((item) => item.classList.remove('active'));
+      images[index].classList.add('active');
     }
-
     prevBtn.addEventListener('click', function () {
-        current = (current - 1 + images.length) % images.length;
-        showImage(current);
+      current = (current - 1 + images.length) % images.length;
+      showImage(current);
     });
-
     nextBtn.addEventListener('click', function () {
-        current = (current + 1) % images.length;
-        showImage(current);
+      current = (current + 1) % images.length;
+      showImage(current);
     });
-
     showImage(current);
+  }
 });
