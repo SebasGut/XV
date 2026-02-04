@@ -112,6 +112,7 @@
   .pre_img {
     height: 100vh;
     background-image: url("../img/presentationVer.jpg");
+    background-position: center;
   }
 
   #XV_letter {

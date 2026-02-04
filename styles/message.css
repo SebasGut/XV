@@ -50,8 +50,6 @@
 @media only screen and (min-width: 720px) {
   .img_body {
     height: 100vh;
-    background-image: url("../img/mensaje2.jpg");
-    background-position: center;
   }
   .img_body .message_paragraph {
     font-size: 5rem;

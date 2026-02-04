@@ -121,9 +121,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Inicializar la sección existente
   initBackgroundReveal(".img-section", "../img/bg-2.jpg", 1);
+  initBackgroundReveal(".img-section2", "../img/bg-3.jpg", 2);
+  initBackgroundReveal(".img-section3", "../img/bg-4.jpg", 3);
 
   // EJEMPLO: Para agregar más secciones, usa así:
   // initBackgroundReveal(".img-section-2", "../img/bg-3.jpg", 2);
   // initBackgroundReveal(".img-section-3", "../img/bg-4.jpg", 3);
 });
 
+//carouccel//
+document.addEventListener('DOMContentLoaded', function () {
+    const images = document.querySelectorAll('.carousel-items div');
+    const prevBtn = document.querySelector('.carousel-btn.prev');
+    const nextBtn = document.querySelector('.carousel-btn.next');
+    let current = 0;
+
+    function showImage(index) {
+        images.forEach(item => item.classList.remove('active'));
+        images[index].classList.add('active');
+    }
+
+    prevBtn.addEventListener('click', function () {
+        current = (current - 1 + images.length) % images.length;
+        showImage(current);
+    });
+
+    nextBtn.addEventListener('click', function () {
+        current = (current + 1) % images.length;
+        showImage(current);
+    });
+
+    showImage(current);
+});
