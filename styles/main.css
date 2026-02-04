@@ -632,9 +632,14 @@ iframe {
 
 /* Sección de imagen - ventana para ver fondo fijo */
 .img-section {
-  min-height: 100vh; /* fallback */
-  min-height: 100dvh; /* viewport real en mobile */
+  min-height: 100dvh;
+  min-height: 100vh; /* fallback para navegadores antiguos */
   position: relative;
+}
+
+.img_body {
+  min-height: 100dvh;
+  min-height: 100vh; /* fallback para navegadores antiguos */
 }
 
 /* Degradado inferior */
