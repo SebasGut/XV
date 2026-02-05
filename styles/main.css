@@ -834,7 +834,6 @@ iframe {
   position: fixed;
   inset: 0;
   background-image: url("../img/bg-1.webp");
-  background-size: cover;
   background-position: center;
   background-attachment: fixed;
   z-index: -10;
