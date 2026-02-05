@@ -34,53 +34,134 @@
   ============================= */
 
 :root {
-   --great-sand: "Great Vibes", cursive;
-   --josefin-sand: "Josefin Sans", sans-serif;
-   --montserrat-sand: "Montserrat", sans-serif;
-   --pinyon-sand: "Pinyon Script", cursive;
+  --great-sand: "Great Vibes", cursive;
+  --josefin-sand: "Josefin Sans", sans-serif;
+  --montserrat-sand: "Montserrat", sans-serif;
+  --pinyon-sand: "Pinyon Script", cursive;
 }
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
 }
 body {
-	line-height: 1;
+  line-height: 1;
 }
-ol, ul {
-	list-style: none;
+ol,
+ul {
+  list-style: none;
 }
-blockquote, q {
-	quotes: none;
+blockquote,
+q {
+  quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 /* =============================
@@ -143,7 +224,7 @@ table {
 #countdown p {
   font-family: var(--montserrat-sand);
   font-size: 6vw;
-  padding: 0 .5vw 0 .5vw;
+  padding: 0 0.5vw 0 0.5vw;
 }
 .countdown-item {
   display: inline-block;
@@ -172,7 +253,7 @@ footer img {
   width: 100px;
 }
 footer p {
-  font-size: .9rem;
+  font-size: 0.9rem;
 }
 
 /* --------- General --------- */
@@ -480,8 +561,8 @@ nav p {
 @media only screen and (min-width: 720px) {
   .carousel-items div img {
     width: 100%;
-    height: 100dvh;
     height: 100vh; /* fallback para navegadores antiguos */
+    height: 100dvh;
   }
 }
 
@@ -635,8 +716,8 @@ iframe {
   background-position: center;
   background-size: contain;
   padding-bottom: 1rem;
-  height: 90dvh;
   height: 90vh; /* fallback para navegadores antiguos */
+  height: 90dvh;
 }
 
 @media only screen and (min-width: 720px) {
@@ -665,14 +746,14 @@ iframe {
 
 /* Sección de imagen - ventana para ver fondo fijo */
 .img-section {
-  min-height: 100dvh;
-  min-height: 100vh; /* fallback para navegadores antiguos */
   position: relative;
+  min-height: 100vh; /* fallback para navegadores antiguos */
+  min-height: 100dvh;
 }
 
 .img_body {
-  min-height: 100dvh;
-  min-height: 100vh; /* fallback para navegadores antiguos */
+    min-height: 100vh; /* fallback para navegadores antiguos */
+    min-height: 100dvh;
 }
 
 /* Degradado inferior */
@@ -834,6 +915,7 @@ iframe {
   position: fixed;
   inset: 0;
   background-image: url("../img/bg-1.webp");
+  background-size: cover;
   background-position: center;
   background-attachment: fixed;
   z-index: -10;
@@ -855,16 +937,18 @@ iframe {
   background-position: center;
   background-attachment: fixed;
   background-color: #f8e6f2; /* color temporal mientras carga */
-  transition: background-image 0.5s, background-color 0.5s;
+  transition:
+    background-image 0.5s,
+    background-color 0.5s;
   z-index: -9;
   clip-path: inset(100% 0 0 0);
   pointer-events: none;
 }
 
 .pre_img {
+  text-align: center;
   min-height: 100vh;
   min-height: 100dvh;
-  text-align: center;
 }
 
 .clock_cont {
