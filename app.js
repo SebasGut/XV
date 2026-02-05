@@ -1,3 +1,18 @@
+// Ajuste de altura para evitar redimensionamiento en móviles
+function setRealViewportHeight() {
+  const vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--real-vh', `${vh}px`);
+  document.body.style.minHeight = `calc(var(--real-vh, 1vh) * 100)`;
+  const main = document.querySelector('main');
+  if (main) {
+    main.style.minHeight = `calc(var(--real-vh, 1vh) * 100)`;
+  }
+}
+
+window.addEventListener('resize', setRealViewportHeight);
+window.addEventListener('orientationchange', setRealViewportHeight);
+setRealViewportHeight();
+
 //clock//
 const targetDate = new Date("March 13, 2026 18:00:00").getTime();
 setInterval(() => {
