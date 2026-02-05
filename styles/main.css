@@ -975,8 +975,7 @@ iframe {
 }
 .pre_img {
   text-align: center;
-  height: 100vh; /* fallback para navegadores antiguos */
-  height: 100svh;
+  height: auto; /* fallback para navegadores antiguos */
 }
 
 .clock_cont {
@@ -985,6 +984,7 @@ iframe {
   align-items: center;
   color: #000000;
   padding-top: 12rem;
+  height: 100vh;
 }
 
 .pre_img p {
@@ -1002,18 +1002,23 @@ iframe {
   font-size: 10rem;
   color: white;
   text-shadow: pink 2px 2px 4px;
+  position: relative;
+  z-index: 1;
 }
 
 #quince_letter {
-  margin-top: -15rem;
+  margin-top: -8rem;
   margin-bottom: 4rem;
   font-size: 4rem;
   font-family: var(--great-sand);
   color: #d4af37;
+  position: relative;
+  z-index: 2;
 }
 
 @media only screen and (min-width: 720px) {
   .clock_cont {
+    height: 100vh;
     padding-top: 0;
     color: #000000;
   }
@@ -1040,9 +1045,6 @@ iframe {
   .pre_img h2 {
     font-size: 3.5rem;
     margin-bottom: 1rem;
-  }
-  .clock_cont {
-    padding-top: 2rem;
   }
 
   .pre_img h2 {
