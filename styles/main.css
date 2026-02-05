@@ -947,8 +947,8 @@ iframe {
 
 .pre_img {
   text-align: center;
-  min-height: 100vh;
-  min-height: 100dvh;
+  height: 100vh;
+  height: 100dvh;
 }
 
 .clock_cont {
