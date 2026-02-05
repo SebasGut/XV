@@ -226,5 +226,32 @@
       </div>
     </footer>
     <script type="module" src="app.js"></script>
+      <script>
+        // Scroll lento en toda la página
+        let targetScroll = window.scrollY;
+        let isScrolling = false;
+
+        function animateScroll() {
+          const currentScroll = window.scrollY;
+          const diff = targetScroll - currentScroll;
+          if (Math.abs(diff) > 1) {
+            window.scrollTo(0, currentScroll + diff * 0.01); // 0.01 controla la velocidad (mucho más lento)
+            requestAnimationFrame(animateScroll);
+          } else {
+            window.scrollTo(0, targetScroll);
+            isScrolling = false;
+          }
+        }
+
+        window.addEventListener('wheel', function(e) {
+          e.preventDefault();
+          targetScroll += e.deltaY;
+          targetScroll = Math.max(0, Math.min(targetScroll, document.body.scrollHeight - window.innerHeight));
+          if (!isScrolling) {
+            isScrolling = true;
+            animateScroll();
+          }
+        }, { passive: false });
+      </script>
   </body>
 </html>
