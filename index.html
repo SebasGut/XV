@@ -224,9 +224,20 @@
         <p>Página Creada por Sebastian Gutiérrez García</p>
         <img src="img/bob.gif" alt="bob bailando" />
       </div>
+      <button id="scrollTopBtn" style="position:fixed;right:2vw;bottom:6vh;padding:1em 1.2em;font-size:1.2em;border-radius:50%;border:none;background:#e9a4c7;color:#fff;box-shadow:0 2px 8px #0003;cursor:pointer;z-index:1000;">↑</button>
     </footer>
     <script type="module" src="app.js"></script>
       <script>
+        // Botón para volver arriba
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+        scrollTopBtn.addEventListener('click', function() {
+          targetScroll = 0;
+          if (!isScrolling) {
+            isScrolling = true;
+            animateScroll();
+          }
+        });
+
         // Scroll lento en toda la página
         let targetScroll = window.scrollY;
         let isScrolling = false;
@@ -235,7 +246,7 @@
           const currentScroll = window.scrollY;
           const diff = targetScroll - currentScroll;
           if (Math.abs(diff) > 1) {
-            window.scrollTo(0, currentScroll + diff * 0.01); // 0.01 controla la velocidad (mucho más lento)
+            window.scrollTo(0, currentScroll + diff * 0.04); // 0.04 controla la velocidad (más rápido)
             requestAnimationFrame(animateScroll);
           } else {
             window.scrollTo(0, targetScroll);
