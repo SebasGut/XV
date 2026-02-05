@@ -246,7 +246,7 @@
           const currentScroll = window.scrollY;
           const diff = targetScroll - currentScroll;
           if (Math.abs(diff) > 1) {
-            window.scrollTo(0, currentScroll + diff * 0.06);
+            window.scrollTo(0, currentScroll + diff * 0.08);
             requestAnimationFrame(animateScroll);
           } else {
             window.scrollTo(0, targetScroll);
